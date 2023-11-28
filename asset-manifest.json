@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/09-todo-react-meenazamil/static/css/main.073c9b0a.css",
+    "main.js": "/09-todo-react-meenazamil/static/js/main.dee1a421.js",
+    "static/media/logo.svg": "/09-todo-react-meenazamil/static/media/logo.cf1ad5ea55bdf7ea6e8c68b1ae6ee00b.svg",
+    "index.html": "/09-todo-react-meenazamil/index.html",
+    "main.073c9b0a.css.map": "/09-todo-react-meenazamil/static/css/main.073c9b0a.css.map",
+    "main.dee1a421.js.map": "/09-todo-react-meenazamil/static/js/main.dee1a421.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.dee1a421.js"
+  ]
+}
