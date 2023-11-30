@@ -1,20 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import Todo from './Todo.js'
+import NewTodo from './NewTodo';
 
 function App() {
+  // const [todos, setTodos] = useStates();
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h2>Notes</h2>
-        <ul>
-          <li>Use CTRL+C or CMD+C to stop your React server.</li>
-        </ul>
-      </header>
+    <div className="entirePage">
+      <NewTodo/>
+      <div id="todo-list">
+        <Todo/>
+      </div>
     </div>
+   
   );
 }
 

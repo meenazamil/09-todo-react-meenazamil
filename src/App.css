@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,149 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+.todoText{
+  color: black;
+  font-size: 35px;
+  font-family: 'Lato', sans-serif;
+
+}
+
+h1{
+  text-align: center;
+  font-size: 70px;
+  font-family: 'Lato', sans-serif;
+  color: #B44100;
+}
+
+body{
+  /* background-image: url("paper.jpeg"); */
+  background-size: cover;
+
+}
+ul{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#todo-list{
+  display: flex;
+  justify-content: center;
+}
+
+.todo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 30%;
+  margin-top: 30px;
+}
+#new-todo-submit{
+  margin-left: 10px;
+  background: none;
+color: #B44100;
+padding: 0;
+font: inherit;
+cursor: pointer;
+outline: inherit;
+  padding: 10px;
+  border: 2pt solid #B44100;
+}
+#new-todo-submit:hover{
+  background-color: #B44100;
+  color: white;
+
+}
+
+.todoUl{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+#new-todo-form{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+/* input, select, textarea{
+  color: #B44100;
+} */
+#new-todo-text{
+  /* color:#B44100; */
+  font-size: 30px;
+  width: 500px;
+  height: 50px;
+  outline: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  text-align: center;
+  background: none;
+  font-family: 'Lato', sans-serif;
+  border-bottom: 2pt solid #B44100;
+}
+
+#formStyle{
+  display: flex;
+  justify-content: center;
+}
+
+input[type=checkbox] {
+  margin: 4px 0 0;
+  line-height: normal;
+  width: 20px;
+  height: 20px;
+  border-color: green;
+}
+
+.deleteButton{
+  background: none;
+color: inherit;
+color: #B44100;
+padding: 0;
+font: inherit;
+cursor: pointer;
+outline: inherit;
+  padding: 10px;
+  border: 2pt solid #B44100;
+
+}
+
+.deleteButton:hover{
+  background-color: #B44100;
+  color: white;
+}
+
+
+
+
+
+@media (max-width: 1000px){
+  #new-todo-text{
+      font-size: 20px;
+      width: 400px;
+      height: 50px;
+      outline: none;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      text-align: center;
+      background: none;
+      font-family: 'Lato', sans-serif;
+  }
+  .deleteButton{
+      padding: 5px;
+      font-size: 10px;
+  }
+  .todoText{
+      color: black;
+      font-size: 15px;
+      font-family: 'Lato', sans-serif;
+  
+  }
+  
 }
