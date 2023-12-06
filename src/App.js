@@ -37,9 +37,9 @@ class App extends Component {
     let req = new XMLHttpRequest();
     req.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200){
-        self.setState({
-          todos: [...self.state.todos, JSON.parse(this.responseText)]
-        })
+        self.setState((prevState) => ({
+          todos: [JSON.parse(this.responseText), ...prevState.todos],
+        }));
       }
     }
     req.open("POST", apiUrl, true);
@@ -63,8 +63,9 @@ class App extends Component {
     // request.setRequestHeader("Content-type", "application/json");
     request.send();
   }
+
+  
   handleComplete(event){
-    // console.log("here");  
   let request = new XMLHttpRequest();
   let self = this;
   request.onreadystatechange = function () {
@@ -72,51 +73,21 @@ class App extends Component {
       const label = event.target.parentElement.querySelector('.todoText');
       label.style.opacity = event.target.checked ? '.2' : '1'; 
       const responseData = JSON.parse(this.responseText);
-
       self.setState({ completed: responseData.completed });
     }
   }
-
-  //  console.log(apiUrl+"/" +event.target.parentElement.dataset.todoId);
   let data = {
-  completed: event.target.checked,
+    completed: event.target.checked,
   }
-
   request.open("PUT", apiUrl+"/" +event.target.parentElement.id, true);
   request.setRequestHeader("x-api-key", apiKey);
   request.setRequestHeader("Content-type", "application/json");
 
   request.send(JSON.stringify(data));
+  // console.log(event.taret.checked);
+
 }
-// handleComplete(event){
-//     let handleID = event.target.parentElement.id;
-//     console.log(handleID);
-//     console.log(this.readyState);
-//     console.log(this.status);
 
-//     event.preventDefault();
-//     let request = new XMLHttpRequest();
-//     let self = this;
-//     request.onreadystatechange = function () {
-//        if (this.readyState === 4 && this.status === 200) {
-//         const label = event.target.parentElement.childNodes[0];
-//         console.log(this.responseType);
-//         label.style.opacity = event.target.checked ? '.2' : '1'; 
-//         const responseData = JSON.parse(this.responseText);
-
-//         self.setState({ completed: responseData.completed });
-//        }
-//     }
-
-//    request.open("PUT", apiUrl+"/" + handleID, true);
-//    request.setRequestHeader("x-api-key", apiKey);
-//    request.setRequestHeader("Content-type", "application/json");
-//    let data = {
-//       completed: event.target.checked,
-//     }
-
-//     request.send(JSON.stringify(data));
-//   }
   
   handleDelete(e) {
     e.preventDefault();
@@ -140,12 +111,14 @@ class App extends Component {
 
 
   render(){
+    const sortedTodos = this.state.todos.sort((a, b) => a.text.localeCompare(b.text));
+
     return (
       <div className="entirePage">
         <NewTodo  createNewTodo={this.createNewTodo}/>
         <div id="todo-list">
           {
-            this.state.todos.map((todo) =>
+            sortedTodos.map((todo) =>
               <Todo handleDelete={this.handleDelete} handleComplete={this.handleComplete} key={todo.id} id={todo.id} text={todo.text} completed={todo.completed} todos={this.state.todos} remove={this.removeDeleted}/>
             )
           }
