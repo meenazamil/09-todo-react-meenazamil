@@ -70,10 +70,21 @@ class App extends Component {
   let self = this;
   request.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
-      const label = event.target.parentElement.querySelector('.todoText');
-      label.style.opacity = event.target.checked ? '.2' : '1'; 
+
+      //as soon as we update the state, the component will re-render
+      //you can't update the style here, because the component hasn't re-rendered yet
+      // const label = event.target.parentElement.querySelector('.todoText');
+      // label.style.opacity = event.target.checked ? '.2' : '1'; 
       const responseData = JSON.parse(this.responseText);
-      self.setState({ completed: responseData.completed });
+
+      //we have a list of todos stored in state
+      //we need to find the todo that was updated, and remove it from the list
+      //and then add the updated todo to the list
+      let updateId = event.target.parentElement.id;
+      const updatedTodos = self.state.todos.filter(todo => todo.id !== updateId);
+      updatedTodos.push(responseData);
+
+      self.setState({ todos: updatedTodos });
     }
   }
   let data = {

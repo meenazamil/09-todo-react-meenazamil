@@ -15,7 +15,7 @@ class Todo extends Component {
     return (
       <div id={this.props.id} className="todo">
           <input onChange={this.props.handleComplete} className="checkboxclass" type="checkbox" checked={this.props.completed}></input>
-          <p className="todoText">{this.props.text}</p>
+          <p className={`todoText ${this.props.completed ? 'completed' : ''}`}>{this.props.text}</p>
           <button onClick={this.props.handleDelete} className="deleteButton">Delete</button>
       </div>
     );  

@@ -5,6 +5,10 @@
 
 }
 
+.completed{
+    opacity: 0.2;
+}
+
 .deleteButton{
     background: none;
 	color: inherit;
